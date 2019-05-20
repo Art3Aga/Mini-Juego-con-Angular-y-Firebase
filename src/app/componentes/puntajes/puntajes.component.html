@@ -1,0 +1,18 @@
+<div class="container">
+    <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Nº</th>
+            <th scope="col">Jugador</th>
+            <th scope="col">Aciertos</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of datos | async" >
+          <tr>
+            <th scope="row">{{item.jugador}}</th>
+            <td>{{item.jugador}}</td>
+            <td>{{item.aciertos}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

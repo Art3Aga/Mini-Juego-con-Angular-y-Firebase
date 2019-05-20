@@ -1,0 +1,72 @@
+<div class="container" id="formulario" *ngIf="show == true" >
+    
+    <div class="row">
+      <div class="col-3"></div>
+      <div id="nombre-usuario" class="col-6">
+        <form>
+          <div class="form-group">
+            <br>
+            <br>
+            <label>Ingrese Nombre</label>
+            <br>
+            <br>
+            <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="nombre" class="form-control" placeholder="Nombre">
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button class="btn btn-danger btn-block" (click)="ocultar()">Continuar</button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </form>
+      </div>
+      <div class="col-3"></div>
+    </div>
+</div>
+<br>
+<div class="container" *ngIf="show == false">
+    <div class="row">
+      <div class="col-2">
+        <button class="btn btn-warning btn-block" routerLink="/home">Aciertos: {{n_aciertos}}</button>
+        <button class="btn btn-warning btn-block">Intentos: {{n_intentos}}</button>
+      </div>
+      <div class="col-8 text-center">  
+        <h4 class="p-3 mb-2 bg-info text-white">¡{{nombre}}! Selecciona un Vengador y su Frase Celebre</h4>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-warning btn-block" (click)="newIntento()">Nuevo Intento</button>
+        <button class="btn btn-warning btn-block" (click)="agregar()" routerLink="/puntajes" >Tabla de Puntajes</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <h5 class="p-3 mb-2 bg-danger text-white">Vengador</h5>
+        <div class="list-group" *ngFor="let item of vengadores; let i=index">
+          <a id="seleccionadoV" class="list-group-item list-group-item-action bg-{{color}} text-white {{nuevoIntento}}" (click)="getVengador(i, item.nombre, item.img)">{{item.nombre}}</a>
+        </div>
+      </div>
+      <div class="col-6">
+        <h5 class="p-3 mb-2 bg-danger text-white">Frase</h5>
+        <div class="list-group" *ngFor="let item of vengadores; let i = index" >
+          <a id="seleccionado" class="list-group-item list-group-item-action bg-{{color2}} text-white {{disabled}}" (click)="adivinar(item.id, idVengador, item.frase)">{{item.frase}}</a>
+        </div>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-6" id="imgSeleccionado">
+        <img *ngIf="existeImg == ''"  src="" alt="">
+        <img *ngIf="existeImg == 'true'" [src]="imgVengador" alt="">
+        <button class="btn btn-success btn-block">Seleccionado: {{nombreVengador}}</button>
+      </div>
+      <div class="col-6" id="imgSeleccionado2">
+          <img *ngIf="acierto == ''"  src="" alt="">        
+          <img *ngIf="acierto == 'true'" src="assets/avengersImgs/correcto.jpeg" alt="">
+          <img *ngIf="acierto == 'false'" src="assets/avengersImgs/incorrecto.png" alt="">
+        <button class="btn btn-success btn-block" >Seleccionado: {{fraseVengador}}</button>
+      </div>
+    </div>
+</div>
+
+<!--Aqui se Renderizan los Componentes-->

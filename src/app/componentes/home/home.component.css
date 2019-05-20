@@ -1,0 +1,24 @@
+#formulario{
+    margin-top: 14%;
+}
+#nombre-usuario{
+    border: 1px solid #6e413f5e;
+    border-radius: 10px;
+    height: 300px;
+    -webkit-box-shadow: 10px 10px 5px 3px rgba(215,215,219,1);
+    -moz-box-shadow: 10px 10px 5px 3px rgba(215,215,219,1);
+    box-shadow: 10px 10px 5px 3px rgba(215,215,219,1);
+}
+#imgSeleccionado > img{
+    width: 55%;
+}
+#imgSeleccionado2 > img{
+    width: 31%;
+}
+#imgSeleccionado, #imgSeleccionado2{
+    text-align: center;
+}
+#fraseSeleccionada{
+    height: 100%;
+    /*border: 0.06em solid wheat;*/
+}
